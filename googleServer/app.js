@@ -18,12 +18,9 @@ app.get("/apps", (req, res) => {
         res.status(400).send('not included');
       }
       playstore = playstore.filter(app => {
-        app.Genres.toLowerCase().includes(genres.toLowerCase());
+        return app.Genres.toLowerCase().includes(genres.toLowerCase());
       });
-      // genreResults.sort((a, b) => {
-      //     return a[sort] > b[sort] ? 1 : a[sort] < b[sort] ? -1 : 0;
-      //   });
-      res.send(genres);
+      
     }
     if (sort) {
       if (!["Rating", "App"].includes(sort)) {
